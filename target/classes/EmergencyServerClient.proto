@@ -1,0 +1,58 @@
+syntax = "proto3"; //is the syntax
+
+package EmergencyServerClient;
+
+option java_package = "com.proto.EmergencyServerClient";
+option java_multiple_files = true;
+
+//create the message
+message Emergency{
+  string PatientFirst_name = 1;
+  string PatientLast_name = 2;
+  int32 age = 3;
+  string Address = 4;
+  string high_Blood_pressure = 5;
+  string Medication = 6;
+  
+}
+
+//Message for the Server Streaming
+message  EmergencyManyTimesRequest{
+  Emergency emergency = 1;
+}
+
+message EmergencyManyTimesResponse{
+  string result = 1;
+}
+//message for the Client Streaming
+message LongEmergencyRequest{
+  Emergency emergency = 1;
+}
+
+message LongEmergencyResponse{
+  string result = 1;
+}
+
+//create messagens error handling
+message ErrorHandlingSCRequest{
+  string Medication = 1;
+}
+
+message ErrorHandlingSCResponse{
+  string result = 1;
+}
+  
+
+//create the service
+service EmergencyServerClient{
+  //Server Streaming
+  rpc EmergencyManyTimes (EmergencyManyTimesRequest) returns (stream EmergencyManyTimesResponse) {};
+  //Client Streaming
+  rpc LongEmergency (stream LongEmergencyRequest) returns (LongEmergencyResponse){};
+   //error handling
+ //will trow an exception is the message sent arent correct.
+ rpc ErrorHandlingSC (ErrorHandlingSCRequest) returns (ErrorHandlingSCResponse) {};
+ }
+  
+
+

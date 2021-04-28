@@ -1,0 +1,42 @@
+syntax = "proto3"; //is the syntax
+
+package EmergencyBidirectionl;
+
+option java_package = "com.proto.EmergencyBidirectionl";
+option java_multiple_files = true;
+
+//create the message
+message Emergency{
+  string high_Blood_pressure = 1;
+  string Treatment = 2;
+  
+}
+
+//Message for the Bidirectional Request
+message EmergencyMultiRequest{
+  Emergency emergency = 1;
+
+}
+
+message EmergencyMultiResponse{
+  string result = 1;
+}
+
+
+//create messagens error handling
+message ErrorHandlingBidiRequest{
+  string Treatment = 1;
+}
+
+message ErrorHandlingBidiResponse{
+  string result = 1;
+}
+//create the service
+service EmergencyServiceBidi{
+
+  //Bi Directional Streaming
+  rpc EmergencyMulti (stream EmergencyMultiRequest) returns (stream EmergencyMultiResponse){};
+ //will trow an exception is the message sent arent correct.
+ rpc ErrorHandlingBidi (ErrorHandlingBidiRequest) returns (ErrorHandlingBidiResponse) {};
+ }
+

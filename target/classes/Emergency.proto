@@ -1,0 +1,44 @@
+syntax = "proto3"; //is the syntax
+
+package Emergency;
+
+option java_package = "com.proto.EmergencyUnary";
+option java_multiple_files = true;
+
+//create the message
+message Emergency{
+  string PatientFirst_name = 1;
+  string PatientLast_name = 2;
+  int32  age = 3;
+  string Address = 4;
+  double high_Blood_pressure = 5;
+}
+//Create the Emergency  Request
+message EmergencyRequest{
+  Emergency emergency = 1;
+  
+}
+
+//create the Emergency response
+message EmergencyResponse{
+  string result = 1;
+
+}
+//create messagens error handling
+message ErrorHandlingRequest{
+  string PatientFirst_name = 1;
+}
+
+message ErrorHandlingResponse{
+  string result = 1;
+}
+  
+  
+//create the service
+service EmergencyService{
+  //Unary API
+  rpc Emergency (EmergencyRequest) returns (EmergencyResponse){};
+ //error handling
+ //will trow an exception is the message sent arent correct.
+ rpc ErrorHandling (ErrorHandlingRequest) returns (ErrorHandlingResponse) {};
+ }
