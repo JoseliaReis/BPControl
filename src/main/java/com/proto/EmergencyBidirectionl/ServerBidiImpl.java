@@ -36,21 +36,4 @@ public class ServerBidiImpl extends EmergencyServiceBidiGrpc.EmergencyServiceBid
         return requestObserver;
     }
 
-    @Override
-    public void errorHandlingBidi(ErrorHandlingBidiRequest request,	StreamObserver<ErrorHandlingBidiResponse> responseObserver) {
-        String string = request.getTreatment();
-        if (string.matches("[A-Za-z]+")) {
-            responseObserver.onNext(
-                    ErrorHandlingBidiResponse.newBuilder()
-                            .setResult(string)
-                            .build());
-            responseObserver.onCompleted();
-        }else {
-            responseObserver.onError(
-                    Status.INVALID_ARGUMENT
-                            .withDescription("The String sent must contain only Letters")
-                            .asRuntimeException());
-        }
-    }
-
 }

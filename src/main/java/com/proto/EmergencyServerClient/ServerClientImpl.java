@@ -76,23 +76,5 @@ public class ServerClientImpl extends EmergencyServerClientGrpc .EmergencyServer
         return requestObserver; //It is returning a String
 
     }
-	@Override
-	public void errorHandlingSC(ErrorHandlingSCRequest request,StreamObserver<ErrorHandlingSCResponse> responseObserver) {
-		
-		String string = request.getMedication();
-		if (string.matches("[A-Za-z]+")) {
-			responseObserver.onNext(
-					ErrorHandlingSCResponse.newBuilder()
-					.setResult(string)
-					.build());
-			responseObserver.onCompleted();
-	}else {
-		responseObserver.onError(
-				Status.INVALID_ARGUMENT
-				.withDescription("The String sent must contain only Letters")
-				.asRuntimeException());
-	}   
-    
-  }
 
 }

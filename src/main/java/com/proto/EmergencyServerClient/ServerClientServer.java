@@ -2,7 +2,6 @@ package com.proto.EmergencyServerClient;
 
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
-
 import java.io.IOException;
 import java.util.logging.Logger;
 
@@ -10,9 +9,10 @@ public class ServerClientServer extends ServerClientImpl {
     private static final Logger logger = Logger.getLogger(ServerClientServer.class.getName());
 
     public static void main(String[] args) {
+        //create the object
+        ServerClientServer server2 = new ServerClientServer();
 
-        ServerClientServer greeterserver = new ServerClientServer();
-
+        //Declare the Port
         int port = 50052;
         String service_type = "_grpc2._tcp.local.";
         String service_name = "GrpcServer2";
@@ -21,8 +21,10 @@ public class ServerClientServer extends ServerClientImpl {
 
 
         try {
+            //create the server that has the port which was declared above
+
             Server server = ServerBuilder.forPort(port)
-                    .addService(greeterserver)
+                    .addService(server2)
                     .build()
                     .start();
             System.out.println("\nServer V1.2 Started");
@@ -38,7 +40,7 @@ public class ServerClientServer extends ServerClientImpl {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-
+        //will get the information and print out that the server has started
         logger.info("Server started, listening on " + port);
 
 
