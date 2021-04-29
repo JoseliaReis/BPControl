@@ -8,11 +8,10 @@ public class ServerClientImpl extends EmergencyServerClientGrpc .EmergencyServer
 
 
    //override method
-
    //To implement Server Streaming
    @Override
     public void emergencyManyTimes(EmergencyManyTimesRequest request, StreamObserver<EmergencyManyTimesResponse> responseObserver) {
-        //generante the request
+        //generate the request
     	String PatientFirst_name = request.getEmergency().getPatientFirstName();
         String PatientLast_name = request.getEmergency().getPatientLastName();
         int age = request.getEmergency().getAge();
@@ -25,7 +24,7 @@ public class ServerClientImpl extends EmergencyServerClientGrpc .EmergencyServer
                 		+ PatientLast_name +
                        " Age: " + age +
                        " Address:  " + Address;
-                //create the Emerngengy Many Times Response and set the results
+                //create the Emergency Many Times Response and set the results
                 EmergencyManyTimesResponse response = EmergencyManyTimesResponse.newBuilder()
                         .setResult(result)
                         .build();
@@ -40,6 +39,7 @@ public class ServerClientImpl extends EmergencyServerClientGrpc .EmergencyServer
         }
 
     }
+    //override method
     //ClientUnary Streaming
     @Override
     //It will return the stream observer because is sync and the client will send many message to the server and
@@ -62,8 +62,8 @@ public class ServerClientImpl extends EmergencyServerClientGrpc .EmergencyServer
             }
 
             @Override
+            //client is done
             public void onCompleted() {
-                 //client is done
                 //it is when we want to return a response (responseObserver)
                 responseObserver.onNext(
                         LongEmergencyResponse.newBuilder()

@@ -24,9 +24,15 @@ public class Client {
         System.out.println("Emergency Blood Pressure Control Starting: ");
         //Will create functions to make sure that the client can be called
         Client main = new Client();
+        //call the run function
         main.run();
     }
+    //run function
     private void run(){
+        /**
+         * Discovery and Register the Unary Service
+         */
+        //This channel will be the transport to find the LocalHost
         ServiceInfo serviceInfo;
         String service_type = "_grpc._tcp.local.";
         //Now retrieve the service info - all we are supplying is the service type
@@ -35,25 +41,26 @@ public class Client {
         int port = serviceInfo.getPort();
         //int port = 50051;
         String host = "localhost";
-
+        //create the managed channel to transport
         ManagedChannel channel = ManagedChannelBuilder.
                 forAddress(host, port)
                 .usePlaintext()
                 .build();
-        //function to call the method
+        //function to call the method unary
         System.out.println("\nUnary Streaming service starting:");
         doUnaryCall(channel);
         // doErrorhandling( channel);
 
 
-
-        //This channel will be the transport to find the LocalHost
+        /**
+         * Discovery and Register the Server Streaming and the Client Streaming
+         */
         ServiceInfo serviceInfo2;
         String service_type2 = "_grpc2._tcp.local.";
         serviceInfo2 = ServiceDiscovery.run(service_type2);
         int port2 = serviceInfo2.getPort();
         String host2 = "localhost";
-        //int port = 50051;
+        //int port = 50052;
 
         ManagedChannel channel1 = ManagedChannelBuilder.
                 forAddress(host2, port2)
@@ -61,17 +68,18 @@ public class Client {
                 .build();
         System.out.println("\nServer and CLient Streaming starting:");
 
-        //we created this function to call the method or commented it out when is necessary
+        //Call the Method
         doServerStreamingCall(channel1);
         doCLientStreamingCall(channel1);
-
-        //This channel will be the transport to find the LocalHost
+        /**
+         * Discovery and Register the Bi-Directional Streaming
+         */
         ServiceInfo serviceInfo3;
         String service_type3 = "_grpc3._tcp.local.";
         serviceInfo3 = ServiceDiscovery.run(service_type3);
         int port3 = serviceInfo3.getPort();
         String host3 = "localhost";
-        //int port = 50051;
+        //int port = 50053;
 
         ManagedChannel channel3 = ManagedChannelBuilder.
                 forAddress(host3, port3)
@@ -79,7 +87,7 @@ public class Client {
                 .build();
         System.out.println("\nBi-Directional Streaming starting:");
         System.out.println("\n");
-
+        //Call the method
         doBiDiStreamingCall(channel3);
 
 
@@ -92,7 +100,7 @@ public class Client {
     //Unary RPC
     private void doUnaryCall(ManagedChannel channel){
 
-        //Create a EmergencyUnary service client (blocking sysnchronous)
+        //Create a EmergencyUnary service client (blocking sysnchronous) and pass the channel
         EmergencyServiceGrpc.EmergencyServiceBlockingStub emergencyClient = EmergencyServiceGrpc.newBlockingStub(channel);
         //Unary
         //creating a protocol buffer emergency message
@@ -126,14 +134,18 @@ public class Client {
 
     }
     private void doErrorhandling(ManagedChannel channel) {
+        //create a blocking stub
         EmergencyServiceGrpc.EmergencyServiceBlockingStub blockingStub = EmergencyServiceGrpc.newBlockingStub(channel);
+        //set the string
         String str = "Joselia";
+        //check if matches with the condition
         try {
             blockingStub.errorHandling(ErrorHandlingRequest.newBuilder()
                     .setPatientFirstName(str)
                     .build());
 
         }catch(StatusRuntimeException e) {
+            // if does not match, print out the exception
             System.out.println("Got an exception of First Name");
             e.printStackTrace();
         }
@@ -205,7 +217,7 @@ public class Client {
             });
             //It will start to pass messages
 
-            //Streaming message 1
+            //Streaming message
             requestObserver.onNext(LongEmergencyRequest.newBuilder()
                     .setEmergency(com.proto.EmergencyServerClient.Emergency.newBuilder()
                             .setHighBloodPressure("200/80 mm Hg ")
@@ -230,7 +242,7 @@ public class Client {
     }
     //Bidirectional Streaming RPC
     private void doBiDiStreamingCall(ManagedChannel channel3) {
-        //create an asynchronous CLientservice {
+        //create an asynchronous CLientservice
         EmergencyServiceBidiGrpc.EmergencyServiceBidiStub asyncClient = EmergencyServiceBidiGrpc.newStub(channel3);
         //CountDownLatch is used to make sure that a task waits for other threads before it starts.
         CountDownLatch latch = new CountDownLatch(1);
@@ -239,7 +251,7 @@ public class Client {
 
                 @Override
                 public void onNext(EmergencyMultiResponse value) {
-
+                    //every time that a response from the server is received, it will be print out
                     System.out.println("Response from server: " + value.getResult());
                 }
 
@@ -251,13 +263,16 @@ public class Client {
 
                 @Override
                 public void onCompleted() {
-                   latch.countDown();
+
+                    latch.countDown();
                 }
             });
+            //create an array list with treatment available
             Arrays.asList("Intravenous (IV)" , "labetalol", "nonselective beta-adrenergic" ).forEach(
                     name ->{
                         System.out.println("Sending: " + name);
                         requestObserver.onNext(EmergencyMultiRequest.newBuilder()
+                                //set the blood pressure and the treatment
                                 .setEmergency(com.proto.EmergencyBidirectionl.Emergency.newBuilder()
                                         .setHighBloodPressure(name)
                                         .setTreatment(name)

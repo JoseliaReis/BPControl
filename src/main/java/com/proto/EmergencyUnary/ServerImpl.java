@@ -11,7 +11,7 @@ public class ServerImpl extends EmergencyServiceGrpc.EmergencyServiceImplBase {
     @Override
     public void emergency(EmergencyRequest request, StreamObserver<EmergencyResponse> responseObserver) {
         //The emergency takes an input, that is the EmergencyUnary Request and then sent to the response observer will resturn
-        //extract the fields that we need in the responde
+        //extract the fields that we need in the response
         Emergency emergency = request.getEmergency();
         String PatientFirst_name = emergency.getPatientFirstName();
         String PatientLast_name = emergency.getPatientLastName();
@@ -36,7 +36,7 @@ public class ServerImpl extends EmergencyServiceGrpc.EmergencyServiceImplBase {
         responseObserver.onCompleted();
 
     }
-    //this error handlign is a demonstration how it works in case of the input does not match with the conditions
+    //this error handling is a demonstration how it works in case of the input does not match with the conditions
     @Override
     public void errorHandling(ErrorHandlingRequest request, StreamObserver<ErrorHandlingResponse> responseObserver) {
 
