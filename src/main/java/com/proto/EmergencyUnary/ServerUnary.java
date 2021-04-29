@@ -1,8 +1,5 @@
 package com.proto.EmergencyUnary;
-
-
 import io.grpc.ServerBuilder;
-
 import java.io.IOException;
 import java.util.logging.Logger;
 
@@ -31,11 +28,9 @@ public class ServerUnary extends ServerImpl {
 
 
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
 
         } catch (InterruptedException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 

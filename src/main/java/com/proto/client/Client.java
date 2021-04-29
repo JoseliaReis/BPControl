@@ -13,9 +13,7 @@ import com.proto.EmergencyServerClient.LongEmergencyRequest;
 import com.proto.EmergencyServerClient.LongEmergencyResponse;
 import io.grpc.*;
 import io.grpc.stub.StreamObserver;
-
 import javax.jmdns.ServiceInfo;
-
 import java.util.Arrays;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
@@ -23,7 +21,7 @@ import java.util.concurrent.TimeUnit;
 public class Client {
     //main method
     public static void main(String[] args) {
-        System.out.println("EmergencyUnary Blood Pressure Control Starting: ");
+        System.out.println("Emergency Blood Pressure Control Starting: ");
         //Will create functions to make sure that the client can be called
         Client main = new Client();
         main.run();
@@ -35,8 +33,8 @@ public class Client {
         serviceInfo = ServiceDiscovery.run(service_type);
         //Use the serviceInfo to retrieve the port
         int port = serviceInfo.getPort();
-        String host = "localhost";
         //int port = 50051;
+        String host = "localhost";
 
         ManagedChannel channel = ManagedChannelBuilder.
                 forAddress(host, port)
