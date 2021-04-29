@@ -4,7 +4,7 @@
 package com.proto.EmergencyBidirectionl;
 
 public interface EmergencyOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:EmergencyBidirectionl.EmergencyUnary)
+    // @@protoc_insertion_point(interface_extends:EmergencyBidirectionl.Emergency)
     com.google.protobuf.MessageOrBuilder {
 
   /**

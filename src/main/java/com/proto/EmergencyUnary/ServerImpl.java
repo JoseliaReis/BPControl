@@ -4,22 +4,21 @@ package com.proto.EmergencyUnary;
 import io.grpc.Status;
 import io.grpc.stub.StreamObserver;
 
-//this extention will generate all code that will be used
+//this extension will generate all code that will be used
 public class ServerImpl extends EmergencyServiceGrpc.EmergencyServiceImplBase {
     //override method
 
     @Override
     public void emergency(EmergencyRequest request, StreamObserver<EmergencyResponse> responseObserver) {
-        //The emergency takes an input, that is the EmergencyUnary Request and then the response overser will resturn
-        //The stream observer
-        //extract the field that we need
+        //The emergency takes an input, that is the EmergencyUnary Request and then sent to the response observer will resturn
+        //extract the fields that we need in the responde
         Emergency emergency = request.getEmergency();
         String PatientFirst_name = emergency.getPatientFirstName();
         String PatientLast_name = emergency.getPatientLastName();
         int age = emergency.getAge();
         String Address = emergency.getAddress();
         double  high_Blood_pressure = emergency.getHighBloodPressure();
-        //create the response
+        //create the response based on the fields that were extracted above
         String result = "\nThe actual blood Pressure Status for the follow patient is:"
                 +"\nFirst Name:" +PatientFirst_name +
                 " Last Name:" +PatientLast_name +
@@ -37,7 +36,7 @@ public class ServerImpl extends EmergencyServiceGrpc.EmergencyServiceImplBase {
         responseObserver.onCompleted();
 
     }
-
+    //this error handlign is a demonstration how it works in case of the input does not match with the conditions
     @Override
     public void errorHandling(ErrorHandlingRequest request, StreamObserver<ErrorHandlingResponse> responseObserver) {
 
@@ -55,9 +54,7 @@ public class ServerImpl extends EmergencyServiceGrpc.EmergencyServiceImplBase {
                             .asRuntimeException());
         }
 
-
     }
-
 
 }
 

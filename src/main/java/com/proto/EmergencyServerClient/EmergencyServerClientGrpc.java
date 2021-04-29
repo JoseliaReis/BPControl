@@ -94,38 +94,6 @@ public final class EmergencyServerClientGrpc {
      return getLongEmergencyMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.proto.EmergencyServerClient.ErrorHandlingSCRequest,
-      com.proto.EmergencyServerClient.ErrorHandlingSCResponse> getErrorHandlingSCMethod;
-
-  @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "ErrorHandlingSC",
-      requestType = com.proto.EmergencyServerClient.ErrorHandlingSCRequest.class,
-      responseType = com.proto.EmergencyServerClient.ErrorHandlingSCResponse.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.proto.EmergencyServerClient.ErrorHandlingSCRequest,
-      com.proto.EmergencyServerClient.ErrorHandlingSCResponse> getErrorHandlingSCMethod() {
-    io.grpc.MethodDescriptor<com.proto.EmergencyServerClient.ErrorHandlingSCRequest, com.proto.EmergencyServerClient.ErrorHandlingSCResponse> getErrorHandlingSCMethod;
-    if ((getErrorHandlingSCMethod = EmergencyServerClientGrpc.getErrorHandlingSCMethod) == null) {
-      synchronized (EmergencyServerClientGrpc.class) {
-        if ((getErrorHandlingSCMethod = EmergencyServerClientGrpc.getErrorHandlingSCMethod) == null) {
-          EmergencyServerClientGrpc.getErrorHandlingSCMethod = getErrorHandlingSCMethod = 
-              io.grpc.MethodDescriptor.<com.proto.EmergencyServerClient.ErrorHandlingSCRequest, com.proto.EmergencyServerClient.ErrorHandlingSCResponse>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(
-                  "EmergencyServerClient.EmergencyServerClient", "ErrorHandlingSC"))
-              .setSampledToLocalTracing(true)
-              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.proto.EmergencyServerClient.ErrorHandlingSCRequest.getDefaultInstance()))
-              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.proto.EmergencyServerClient.ErrorHandlingSCResponse.getDefaultInstance()))
-                  .setSchemaDescriptor(new EmergencyServerClientMethodDescriptorSupplier("ErrorHandlingSC"))
-                  .build();
-          }
-        }
-     }
-     return getErrorHandlingSCMethod;
-  }
-
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -176,17 +144,6 @@ public final class EmergencyServerClientGrpc {
       return asyncUnimplementedStreamingCall(getLongEmergencyMethod(), responseObserver);
     }
 
-    /**
-     * <pre>
-     *error handling
-     *will trow an exception is the message sent arent correct.
-     * </pre>
-     */
-    public void errorHandlingSC(com.proto.EmergencyServerClient.ErrorHandlingSCRequest request,
-        io.grpc.stub.StreamObserver<com.proto.EmergencyServerClient.ErrorHandlingSCResponse> responseObserver) {
-      asyncUnimplementedUnaryCall(getErrorHandlingSCMethod(), responseObserver);
-    }
-
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -203,13 +160,6 @@ public final class EmergencyServerClientGrpc {
                 com.proto.EmergencyServerClient.LongEmergencyRequest,
                 com.proto.EmergencyServerClient.LongEmergencyResponse>(
                   this, METHODID_LONG_EMERGENCY)))
-          .addMethod(
-            getErrorHandlingSCMethod(),
-            asyncUnaryCall(
-              new MethodHandlers<
-                com.proto.EmergencyServerClient.ErrorHandlingSCRequest,
-                com.proto.EmergencyServerClient.ErrorHandlingSCResponse>(
-                  this, METHODID_ERROR_HANDLING_SC)))
           .build();
     }
   }
@@ -256,18 +206,6 @@ public final class EmergencyServerClientGrpc {
       return asyncClientStreamingCall(
           getChannel().newCall(getLongEmergencyMethod(), getCallOptions()), responseObserver);
     }
-
-    /**
-     * <pre>
-     *error handling
-     *will trow an exception is the message sent arent correct.
-     * </pre>
-     */
-    public void errorHandlingSC(com.proto.EmergencyServerClient.ErrorHandlingSCRequest request,
-        io.grpc.stub.StreamObserver<com.proto.EmergencyServerClient.ErrorHandlingSCResponse> responseObserver) {
-      asyncUnaryCall(
-          getChannel().newCall(getErrorHandlingSCMethod(), getCallOptions()), request, responseObserver);
-    }
   }
 
   /**
@@ -301,17 +239,6 @@ public final class EmergencyServerClientGrpc {
       return blockingServerStreamingCall(
           getChannel(), getEmergencyManyTimesMethod(), getCallOptions(), request);
     }
-
-    /**
-     * <pre>
-     *error handling
-     *will trow an exception is the message sent arent correct.
-     * </pre>
-     */
-    public com.proto.EmergencyServerClient.ErrorHandlingSCResponse errorHandlingSC(com.proto.EmergencyServerClient.ErrorHandlingSCRequest request) {
-      return blockingUnaryCall(
-          getChannel(), getErrorHandlingSCMethod(), getCallOptions(), request);
-    }
   }
 
   /**
@@ -334,23 +261,10 @@ public final class EmergencyServerClientGrpc {
         io.grpc.CallOptions callOptions) {
       return new EmergencyServerClientFutureStub(channel, callOptions);
     }
-
-    /**
-     * <pre>
-     *error handling
-     *will trow an exception is the message sent arent correct.
-     * </pre>
-     */
-    public com.google.common.util.concurrent.ListenableFuture<com.proto.EmergencyServerClient.ErrorHandlingSCResponse> errorHandlingSC(
-        com.proto.EmergencyServerClient.ErrorHandlingSCRequest request) {
-      return futureUnaryCall(
-          getChannel().newCall(getErrorHandlingSCMethod(), getCallOptions()), request);
-    }
   }
 
   private static final int METHODID_EMERGENCY_MANY_TIMES = 0;
-  private static final int METHODID_ERROR_HANDLING_SC = 1;
-  private static final int METHODID_LONG_EMERGENCY = 2;
+  private static final int METHODID_LONG_EMERGENCY = 1;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -372,10 +286,6 @@ public final class EmergencyServerClientGrpc {
         case METHODID_EMERGENCY_MANY_TIMES:
           serviceImpl.emergencyManyTimes((com.proto.EmergencyServerClient.EmergencyManyTimesRequest) request,
               (io.grpc.stub.StreamObserver<com.proto.EmergencyServerClient.EmergencyManyTimesResponse>) responseObserver);
-          break;
-        case METHODID_ERROR_HANDLING_SC:
-          serviceImpl.errorHandlingSC((com.proto.EmergencyServerClient.ErrorHandlingSCRequest) request,
-              (io.grpc.stub.StreamObserver<com.proto.EmergencyServerClient.ErrorHandlingSCResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -443,7 +353,6 @@ public final class EmergencyServerClientGrpc {
               .setSchemaDescriptor(new EmergencyServerClientFileDescriptorSupplier())
               .addMethod(getEmergencyManyTimesMethod())
               .addMethod(getLongEmergencyMethod())
-              .addMethod(getErrorHandlingSCMethod())
               .build();
         }
       }

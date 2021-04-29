@@ -33,15 +33,7 @@ message LongEmergencyResponse{
   string result = 1;
 }
 
-//create messagens error handling
-message ErrorHandlingSCRequest{
-  string Medication = 1;
-}
 
-message ErrorHandlingSCResponse{
-  string result = 1;
-}
-  
 
 //create the service
 service EmergencyServerClient{
@@ -49,9 +41,7 @@ service EmergencyServerClient{
   rpc EmergencyManyTimes (EmergencyManyTimesRequest) returns (stream EmergencyManyTimesResponse) {};
   //Client Streaming
   rpc LongEmergency (stream LongEmergencyRequest) returns (LongEmergencyResponse){};
-   //error handling
- //will trow an exception is the message sent arent correct.
- rpc ErrorHandlingSC (ErrorHandlingSCRequest) returns (ErrorHandlingSCResponse) {};
+
  }
   
 

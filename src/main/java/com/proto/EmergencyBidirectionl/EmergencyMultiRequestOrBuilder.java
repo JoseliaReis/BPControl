@@ -8,15 +8,15 @@ public interface EmergencyMultiRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>.EmergencyBidirectionl.EmergencyUnary emergency = 1;</code>
+   * <code>.EmergencyBidirectionl.Emergency emergency = 1;</code>
    */
   boolean hasEmergency();
   /**
-   * <code>.EmergencyBidirectionl.EmergencyUnary emergency = 1;</code>
+   * <code>.EmergencyBidirectionl.Emergency emergency = 1;</code>
    */
   com.proto.EmergencyBidirectionl.Emergency getEmergency();
   /**
-   * <code>.EmergencyBidirectionl.EmergencyUnary emergency = 1;</code>
+   * <code>.EmergencyBidirectionl.Emergency emergency = 1;</code>
    */
   com.proto.EmergencyBidirectionl.EmergencyOrBuilder getEmergencyOrBuilder();
 }

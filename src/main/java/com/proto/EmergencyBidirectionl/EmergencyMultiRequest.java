@@ -94,19 +94,19 @@ private static final long serialVersionUID = 0L;
   public static final int EMERGENCY_FIELD_NUMBER = 1;
   private com.proto.EmergencyBidirectionl.Emergency emergency_;
   /**
-   * <code>.EmergencyBidirectionl.EmergencyUnary emergency = 1;</code>
+   * <code>.EmergencyBidirectionl.Emergency emergency = 1;</code>
    */
   public boolean hasEmergency() {
     return emergency_ != null;
   }
   /**
-   * <code>.EmergencyBidirectionl.EmergencyUnary emergency = 1;</code>
+   * <code>.EmergencyBidirectionl.Emergency emergency = 1;</code>
    */
   public com.proto.EmergencyBidirectionl.Emergency getEmergency() {
     return emergency_ == null ? com.proto.EmergencyBidirectionl.Emergency.getDefaultInstance() : emergency_;
   }
   /**
-   * <code>.EmergencyBidirectionl.EmergencyUnary emergency = 1;</code>
+   * <code>.EmergencyBidirectionl.Emergency emergency = 1;</code>
    */
   public com.proto.EmergencyBidirectionl.EmergencyOrBuilder getEmergencyOrBuilder() {
     return getEmergency();
@@ -436,13 +436,13 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.proto.EmergencyBidirectionl.Emergency, com.proto.EmergencyBidirectionl.Emergency.Builder, com.proto.EmergencyBidirectionl.EmergencyOrBuilder> emergencyBuilder_;
     /**
-     * <code>.EmergencyBidirectionl.EmergencyUnary emergency = 1;</code>
+     * <code>.EmergencyBidirectionl.Emergency emergency = 1;</code>
      */
     public boolean hasEmergency() {
       return emergencyBuilder_ != null || emergency_ != null;
     }
     /**
-     * <code>.EmergencyBidirectionl.EmergencyUnary emergency = 1;</code>
+     * <code>.EmergencyBidirectionl.Emergency emergency = 1;</code>
      */
     public com.proto.EmergencyBidirectionl.Emergency getEmergency() {
       if (emergencyBuilder_ == null) {
@@ -452,7 +452,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.EmergencyBidirectionl.EmergencyUnary emergency = 1;</code>
+     * <code>.EmergencyBidirectionl.Emergency emergency = 1;</code>
      */
     public Builder setEmergency(com.proto.EmergencyBidirectionl.Emergency value) {
       if (emergencyBuilder_ == null) {
@@ -468,7 +468,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.EmergencyBidirectionl.EmergencyUnary emergency = 1;</code>
+     * <code>.EmergencyBidirectionl.Emergency emergency = 1;</code>
      */
     public Builder setEmergency(
         com.proto.EmergencyBidirectionl.Emergency.Builder builderForValue) {
@@ -482,7 +482,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.EmergencyBidirectionl.EmergencyUnary emergency = 1;</code>
+     * <code>.EmergencyBidirectionl.Emergency emergency = 1;</code>
      */
     public Builder mergeEmergency(com.proto.EmergencyBidirectionl.Emergency value) {
       if (emergencyBuilder_ == null) {
@@ -500,7 +500,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.EmergencyBidirectionl.EmergencyUnary emergency = 1;</code>
+     * <code>.EmergencyBidirectionl.Emergency emergency = 1;</code>
      */
     public Builder clearEmergency() {
       if (emergencyBuilder_ == null) {
@@ -514,7 +514,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.EmergencyBidirectionl.EmergencyUnary emergency = 1;</code>
+     * <code>.EmergencyBidirectionl.Emergency emergency = 1;</code>
      */
     public com.proto.EmergencyBidirectionl.Emergency.Builder getEmergencyBuilder() {
       
@@ -522,7 +522,7 @@ private static final long serialVersionUID = 0L;
       return getEmergencyFieldBuilder().getBuilder();
     }
     /**
-     * <code>.EmergencyBidirectionl.EmergencyUnary emergency = 1;</code>
+     * <code>.EmergencyBidirectionl.Emergency emergency = 1;</code>
      */
     public com.proto.EmergencyBidirectionl.EmergencyOrBuilder getEmergencyOrBuilder() {
       if (emergencyBuilder_ != null) {
@@ -533,7 +533,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.EmergencyBidirectionl.EmergencyUnary emergency = 1;</code>
+     * <code>.EmergencyBidirectionl.Emergency emergency = 1;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.proto.EmergencyBidirectionl.Emergency, com.proto.EmergencyBidirectionl.Emergency.Builder, com.proto.EmergencyBidirectionl.EmergencyOrBuilder> 

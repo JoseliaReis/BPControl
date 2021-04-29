@@ -8,14 +8,14 @@ package com.proto.EmergencyBidirectionl;
  *create the message
  * </pre>
  *
- * Protobuf type {@code EmergencyBidirectionl.EmergencyUnary}
+ * Protobuf type {@code EmergencyBidirectionl.Emergency}
  */
 public  final class Emergency extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:EmergencyBidirectionl.EmergencyUnary)
+    // @@protoc_insertion_point(message_implements:EmergencyBidirectionl.Emergency)
     EmergencyOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use EmergencyUnary.newBuilder() to construct.
+  // Use Emergency.newBuilder() to construct.
   private Emergency(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
@@ -330,11 +330,11 @@ private static final long serialVersionUID = 0L;
    *create the message
    * </pre>
    *
-   * Protobuf type {@code EmergencyBidirectionl.EmergencyUnary}
+   * Protobuf type {@code EmergencyBidirectionl.Emergency}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:EmergencyBidirectionl.EmergencyUnary)
+      // @@protoc_insertion_point(builder_implements:EmergencyBidirectionl.Emergency)
       com.proto.EmergencyBidirectionl.EmergencyOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -349,7 +349,7 @@ private static final long serialVersionUID = 0L;
               com.proto.EmergencyBidirectionl.Emergency.class, com.proto.EmergencyBidirectionl.Emergency.Builder.class);
     }
 
-    // Construct using com.proto.EmergencyBidirectionl.EmergencyUnary.newBuilder()
+    // Construct using com.proto.EmergencyBidirectionl.Emergency.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -634,10 +634,10 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:EmergencyBidirectionl.EmergencyUnary)
+    // @@protoc_insertion_point(builder_scope:EmergencyBidirectionl.Emergency)
   }
 
-  // @@protoc_insertion_point(class_scope:EmergencyBidirectionl.EmergencyUnary)
+  // @@protoc_insertion_point(class_scope:EmergencyBidirectionl.Emergency)
   private static final com.proto.EmergencyBidirectionl.Emergency DEFAULT_INSTANCE;
   static {
     DEFAULT_INSTANCE = new com.proto.EmergencyBidirectionl.Emergency();

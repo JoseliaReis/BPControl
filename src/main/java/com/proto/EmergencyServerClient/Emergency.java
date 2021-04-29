@@ -8,14 +8,14 @@ package com.proto.EmergencyServerClient;
  *create the message
  * </pre>
  *
- * Protobuf type {@code EmergencyServerClient.EmergencyUnary}
+ * Protobuf type {@code EmergencyServerClient.Emergency}
  */
 public  final class Emergency extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:EmergencyServerClient.EmergencyUnary)
+    // @@protoc_insertion_point(message_implements:EmergencyServerClient.Emergency)
     EmergencyOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use EmergencyUnary.newBuilder() to construct.
+  // Use Emergency.newBuilder() to construct.
   private Emergency(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
@@ -509,11 +509,11 @@ private static final long serialVersionUID = 0L;
    *create the message
    * </pre>
    *
-   * Protobuf type {@code EmergencyServerClient.EmergencyUnary}
+   * Protobuf type {@code EmergencyServerClient.Emergency}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:EmergencyServerClient.EmergencyUnary)
+      // @@protoc_insertion_point(builder_implements:EmergencyServerClient.Emergency)
       com.proto.EmergencyServerClient.EmergencyOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -528,7 +528,7 @@ private static final long serialVersionUID = 0L;
               com.proto.EmergencyServerClient.Emergency.class, com.proto.EmergencyServerClient.Emergency.Builder.class);
     }
 
-    // Construct using com.proto.EmergencyServerClient.EmergencyUnary.newBuilder()
+    // Construct using com.proto.EmergencyServerClient.Emergency.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -1073,10 +1073,10 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:EmergencyServerClient.EmergencyUnary)
+    // @@protoc_insertion_point(builder_scope:EmergencyServerClient.Emergency)
   }
 
-  // @@protoc_insertion_point(class_scope:EmergencyServerClient.EmergencyUnary)
+  // @@protoc_insertion_point(class_scope:EmergencyServerClient.Emergency)
   private static final com.proto.EmergencyServerClient.Emergency DEFAULT_INSTANCE;
   static {
     DEFAULT_INSTANCE = new com.proto.EmergencyServerClient.Emergency();

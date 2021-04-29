@@ -4,7 +4,7 @@
 package com.proto.EmergencyServerClient;
 
 public interface EmergencyOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:EmergencyServerClient.EmergencyUnary)
+    // @@protoc_insertion_point(interface_extends:EmergencyServerClient.Emergency)
     com.google.protobuf.MessageOrBuilder {
 
   /**

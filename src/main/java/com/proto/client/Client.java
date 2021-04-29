@@ -43,6 +43,8 @@ public class Client {
         //function to call the method
         System.out.println("\nUnary Streaming service starting:");
         doUnaryCall(channel);
+        // doErrorhandling( channel);
+
 
 
         //This channel will be the transport to find the LocalHost
@@ -123,7 +125,24 @@ public class Client {
         }
 
     }
-    //Server Streaming RPC
+    private void doErrorhandling(ManagedChannel channel) {
+        EmergencyServiceGrpc.EmergencyServiceBlockingStub blockingStub = EmergencyServiceGrpc.newBlockingStub(channel);
+        String str = "Joselia";
+        try {
+            blockingStub.errorHandling(ErrorHandlingRequest.newBuilder()
+                    .setPatientFirstName(str)
+                    .build());
+
+        }catch(StatusRuntimeException e) {
+            System.out.println("Got an exception of First Name");
+            e.printStackTrace();
+        }
+
+    }
+
+    /**
+     * Server Streaming RPC
+     */
     private  void doServerStreamingCall(ManagedChannel channel1){
         //create the blocking stub
         EmergencyServerClientGrpc.EmergencyServerClientBlockingStub emergencyClient = EmergencyServerClientGrpc.newBlockingStub(channel1);

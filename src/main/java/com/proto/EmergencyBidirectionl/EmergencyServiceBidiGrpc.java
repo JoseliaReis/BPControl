@@ -62,38 +62,6 @@ public final class EmergencyServiceBidiGrpc {
      return getEmergencyMultiMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.proto.EmergencyBidirectionl.ErrorHandlingBidiRequest,
-      com.proto.EmergencyBidirectionl.ErrorHandlingBidiResponse> getErrorHandlingBidiMethod;
-
-  @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "ErrorHandlingBidi",
-      requestType = com.proto.EmergencyBidirectionl.ErrorHandlingBidiRequest.class,
-      responseType = com.proto.EmergencyBidirectionl.ErrorHandlingBidiResponse.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.proto.EmergencyBidirectionl.ErrorHandlingBidiRequest,
-      com.proto.EmergencyBidirectionl.ErrorHandlingBidiResponse> getErrorHandlingBidiMethod() {
-    io.grpc.MethodDescriptor<com.proto.EmergencyBidirectionl.ErrorHandlingBidiRequest, com.proto.EmergencyBidirectionl.ErrorHandlingBidiResponse> getErrorHandlingBidiMethod;
-    if ((getErrorHandlingBidiMethod = EmergencyServiceBidiGrpc.getErrorHandlingBidiMethod) == null) {
-      synchronized (EmergencyServiceBidiGrpc.class) {
-        if ((getErrorHandlingBidiMethod = EmergencyServiceBidiGrpc.getErrorHandlingBidiMethod) == null) {
-          EmergencyServiceBidiGrpc.getErrorHandlingBidiMethod = getErrorHandlingBidiMethod = 
-              io.grpc.MethodDescriptor.<com.proto.EmergencyBidirectionl.ErrorHandlingBidiRequest, com.proto.EmergencyBidirectionl.ErrorHandlingBidiResponse>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(
-                  "EmergencyBidirectionl.EmergencyServiceBidi", "ErrorHandlingBidi"))
-              .setSampledToLocalTracing(true)
-              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.proto.EmergencyBidirectionl.ErrorHandlingBidiRequest.getDefaultInstance()))
-              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.proto.EmergencyBidirectionl.ErrorHandlingBidiResponse.getDefaultInstance()))
-                  .setSchemaDescriptor(new EmergencyServiceBidiMethodDescriptorSupplier("ErrorHandlingBidi"))
-                  .build();
-          }
-        }
-     }
-     return getErrorHandlingBidiMethod;
-  }
-
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -134,16 +102,6 @@ public final class EmergencyServiceBidiGrpc {
       return asyncUnimplementedStreamingCall(getEmergencyMultiMethod(), responseObserver);
     }
 
-    /**
-     * <pre>
-     *will trow an exception is the message sent arent correct.
-     * </pre>
-     */
-    public void errorHandlingBidi(com.proto.EmergencyBidirectionl.ErrorHandlingBidiRequest request,
-        io.grpc.stub.StreamObserver<com.proto.EmergencyBidirectionl.ErrorHandlingBidiResponse> responseObserver) {
-      asyncUnimplementedUnaryCall(getErrorHandlingBidiMethod(), responseObserver);
-    }
-
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -153,13 +111,6 @@ public final class EmergencyServiceBidiGrpc {
                 com.proto.EmergencyBidirectionl.EmergencyMultiRequest,
                 com.proto.EmergencyBidirectionl.EmergencyMultiResponse>(
                   this, METHODID_EMERGENCY_MULTI)))
-          .addMethod(
-            getErrorHandlingBidiMethod(),
-            asyncUnaryCall(
-              new MethodHandlers<
-                com.proto.EmergencyBidirectionl.ErrorHandlingBidiRequest,
-                com.proto.EmergencyBidirectionl.ErrorHandlingBidiResponse>(
-                  this, METHODID_ERROR_HANDLING_BIDI)))
           .build();
     }
   }
@@ -195,17 +146,6 @@ public final class EmergencyServiceBidiGrpc {
       return asyncBidiStreamingCall(
           getChannel().newCall(getEmergencyMultiMethod(), getCallOptions()), responseObserver);
     }
-
-    /**
-     * <pre>
-     *will trow an exception is the message sent arent correct.
-     * </pre>
-     */
-    public void errorHandlingBidi(com.proto.EmergencyBidirectionl.ErrorHandlingBidiRequest request,
-        io.grpc.stub.StreamObserver<com.proto.EmergencyBidirectionl.ErrorHandlingBidiResponse> responseObserver) {
-      asyncUnaryCall(
-          getChannel().newCall(getErrorHandlingBidiMethod(), getCallOptions()), request, responseObserver);
-    }
   }
 
   /**
@@ -227,16 +167,6 @@ public final class EmergencyServiceBidiGrpc {
     protected EmergencyServiceBidiBlockingStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       return new EmergencyServiceBidiBlockingStub(channel, callOptions);
-    }
-
-    /**
-     * <pre>
-     *will trow an exception is the message sent arent correct.
-     * </pre>
-     */
-    public com.proto.EmergencyBidirectionl.ErrorHandlingBidiResponse errorHandlingBidi(com.proto.EmergencyBidirectionl.ErrorHandlingBidiRequest request) {
-      return blockingUnaryCall(
-          getChannel(), getErrorHandlingBidiMethod(), getCallOptions(), request);
     }
   }
 
@@ -260,21 +190,9 @@ public final class EmergencyServiceBidiGrpc {
         io.grpc.CallOptions callOptions) {
       return new EmergencyServiceBidiFutureStub(channel, callOptions);
     }
-
-    /**
-     * <pre>
-     *will trow an exception is the message sent arent correct.
-     * </pre>
-     */
-    public com.google.common.util.concurrent.ListenableFuture<com.proto.EmergencyBidirectionl.ErrorHandlingBidiResponse> errorHandlingBidi(
-        com.proto.EmergencyBidirectionl.ErrorHandlingBidiRequest request) {
-      return futureUnaryCall(
-          getChannel().newCall(getErrorHandlingBidiMethod(), getCallOptions()), request);
-    }
   }
 
-  private static final int METHODID_ERROR_HANDLING_BIDI = 0;
-  private static final int METHODID_EMERGENCY_MULTI = 1;
+  private static final int METHODID_EMERGENCY_MULTI = 0;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -293,10 +211,6 @@ public final class EmergencyServiceBidiGrpc {
     @java.lang.SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
-        case METHODID_ERROR_HANDLING_BIDI:
-          serviceImpl.errorHandlingBidi((com.proto.EmergencyBidirectionl.ErrorHandlingBidiRequest) request,
-              (io.grpc.stub.StreamObserver<com.proto.EmergencyBidirectionl.ErrorHandlingBidiResponse>) responseObserver);
-          break;
         default:
           throw new AssertionError();
       }
@@ -362,7 +276,6 @@ public final class EmergencyServiceBidiGrpc {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new EmergencyServiceBidiFileDescriptorSupplier())
               .addMethod(getEmergencyMultiMethod())
-              .addMethod(getErrorHandlingBidiMethod())
               .build();
         }
       }

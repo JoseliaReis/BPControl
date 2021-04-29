@@ -4,6 +4,10 @@
 package com.proto.EmergencyBidirectionl;
 
 /**
+ * <pre>
+ *Message to Bi-Directional Response
+ * </pre>
+ *
  * Protobuf type {@code EmergencyBidirectionl.EmergencyMultiResponse}
  */
 public  final class EmergencyMultiResponse extends
@@ -271,6 +275,10 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
+   * <pre>
+   *Message to Bi-Directional Response
+   * </pre>
+   *
    * Protobuf type {@code EmergencyBidirectionl.EmergencyMultiResponse}
    */
   public static final class Builder extends

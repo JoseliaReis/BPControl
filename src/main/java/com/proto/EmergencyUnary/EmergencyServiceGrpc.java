@@ -1,11 +1,18 @@
 package com.proto.EmergencyUnary;
 
 import static io.grpc.MethodDescriptor.generateFullMethodName;
+import static io.grpc.stub.ClientCalls.asyncBidiStreamingCall;
+import static io.grpc.stub.ClientCalls.asyncClientStreamingCall;
+import static io.grpc.stub.ClientCalls.asyncServerStreamingCall;
 import static io.grpc.stub.ClientCalls.asyncUnaryCall;
 import static io.grpc.stub.ClientCalls.blockingServerStreamingCall;
 import static io.grpc.stub.ClientCalls.blockingUnaryCall;
 import static io.grpc.stub.ClientCalls.futureUnaryCall;
+import static io.grpc.stub.ServerCalls.asyncBidiStreamingCall;
+import static io.grpc.stub.ServerCalls.asyncClientStreamingCall;
+import static io.grpc.stub.ServerCalls.asyncServerStreamingCall;
 import static io.grpc.stub.ServerCalls.asyncUnaryCall;
+import static io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall;
 import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
 
 /**
@@ -15,19 +22,19 @@ import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
  */
 @javax.annotation.Generated(
     value = "by gRPC proto compiler (version 1.15.0)",
-    comments = "Source: EmergencyUnary.proto")
+    comments = "Source: Emergency.proto")
 public final class EmergencyServiceGrpc {
 
   private EmergencyServiceGrpc() {}
 
-  public static final String SERVICE_NAME = "EmergencyUnary.EmergencyService";
+  public static final String SERVICE_NAME = "Emergency.EmergencyService";
 
   // Static method descriptors that strictly reflect the proto.
   private static volatile io.grpc.MethodDescriptor<com.proto.EmergencyUnary.EmergencyRequest,
       com.proto.EmergencyUnary.EmergencyResponse> getEmergencyMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "EmergencyUnary",
+      fullMethodName = SERVICE_NAME + '/' + "Emergency",
       requestType = com.proto.EmergencyUnary.EmergencyRequest.class,
       responseType = com.proto.EmergencyUnary.EmergencyResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
@@ -41,13 +48,13 @@ public final class EmergencyServiceGrpc {
               io.grpc.MethodDescriptor.<com.proto.EmergencyUnary.EmergencyRequest, com.proto.EmergencyUnary.EmergencyResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "EmergencyUnary.EmergencyService", "EmergencyUnary"))
+                  "Emergency.EmergencyService", "Emergency"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.proto.EmergencyUnary.EmergencyRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.proto.EmergencyUnary.EmergencyResponse.getDefaultInstance()))
-                  .setSchemaDescriptor(new EmergencyServiceMethodDescriptorSupplier("EmergencyUnary"))
+                  .setSchemaDescriptor(new EmergencyServiceMethodDescriptorSupplier("Emergency"))
                   .build();
           }
         }
@@ -73,7 +80,7 @@ public final class EmergencyServiceGrpc {
               io.grpc.MethodDescriptor.<com.proto.EmergencyUnary.ErrorHandlingRequest, com.proto.EmergencyUnary.ErrorHandlingResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "EmergencyUnary.EmergencyService", "ErrorHandling"))
+                  "Emergency.EmergencyService", "ErrorHandling"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.proto.EmergencyUnary.ErrorHandlingRequest.getDefaultInstance()))
