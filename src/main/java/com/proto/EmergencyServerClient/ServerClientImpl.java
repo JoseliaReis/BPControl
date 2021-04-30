@@ -20,7 +20,7 @@ public class ServerClientImpl extends EmergencyServerClientGrpc .EmergencyServer
         try{ //the entire block bellow
             for(int i = 0; i<1; i++){
             	//generate the response
-                String result = "\nWhat is the current blood Pressure Status for this Patient? " + PatientFirst_name
+                String result = "\nChecking Blood Pressure Status for the Patient: " + PatientFirst_name
                 		+ PatientLast_name +
                        " Age: " + age +
                        " Address:  " + Address;
@@ -40,7 +40,7 @@ public class ServerClientImpl extends EmergencyServerClientGrpc .EmergencyServer
 
     }
     //override method
-    //ClientUnary Streaming
+    //Client Streaming
     @Override
     //It will return the stream observer because is sync and the client will send many message to the server and
     //and it will need to return
@@ -51,8 +51,8 @@ public class ServerClientImpl extends EmergencyServerClientGrpc .EmergencyServer
             public void onNext(LongEmergencyRequest value) {
             //client sends a message
                 //Results will increase the result string
-                result +="Current Blood Pressure Status: " +value.getEmergency().getHighBloodPressure()+ 
-                		"\nPatient need to be medicated with: "+ value.getEmergency().getMedication();
+                result +="\nBlood Pressure Status: " +value.getEmergency().getHighBloodPressure()+
+                		"\nRecommended Medication  : "+ value.getEmergency().getMedication();
             }
 
             @Override

@@ -14,6 +14,7 @@ public class ServiceRegistration {
 
         //get a jMDNS instance
         try {
+            //create an instance with local host
             JmDNS jmdns = JmDNS.create(InetAddress.getLocalHost());
 
             /*
@@ -21,9 +22,7 @@ public class ServiceRegistration {
              */
 
             //the assumption is that we are registering a grpc server
-            //service_type = "_grpc._tcp.local.";				//service-type.domain
-            // service_name + service_type => simple_http._tcp.local
-            //String service_name = "GrpcServer";
+
             int service_port = port;
             String service_desc = "Integration of jmDNS with gRPC";
 
@@ -40,11 +39,10 @@ public class ServiceRegistration {
 
             System.out.printf("Registering service with type: %s and name: %s on port %d ", service_type, service_name, service_port);
 
-            //sleep for 10 seconds
+
             Thread.sleep(10000);
             System.out.println("\nService Registered");
-            //unregister the services
-            //jmdns.unregisterAllServices();   //you could also unregister a single service
+
 
 
         } catch (UnknownHostException e) {

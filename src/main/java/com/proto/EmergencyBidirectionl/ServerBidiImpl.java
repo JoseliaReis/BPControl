@@ -14,7 +14,7 @@ public class ServerBidiImpl extends EmergencyServiceBidiGrpc.EmergencyServiceBid
             @Override
             //Every time that the emergency multi request is received, the emergency multi response will me returned
             public void onNext(EmergencyMultiRequest value) {
-                String response = "Hypertensive emergency. Risk of heart attack. What are the treatment available?? "+ value.getEmergency().getTreatment();
+                String response = "Hypertensive emergency. Risk of heart attack. What is the treatment available?? "+ value.getEmergency().getTreatment();
                 EmergencyMultiResponse emergencyMultiResponse = EmergencyMultiResponse.newBuilder()
                         .setResult(response)
                         .build();

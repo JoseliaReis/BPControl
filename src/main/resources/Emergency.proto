@@ -24,7 +24,7 @@ message EmergencyResponse{
   string result = 1;
 
 }
-//create messagens error handling
+//create messages error handling
 message ErrorHandlingRequest{
   string PatientFirst_name = 1;
 }
@@ -32,7 +32,7 @@ message ErrorHandlingRequest{
 message ErrorHandlingResponse{
   string result = 1;
 }
-  
+
   
 //create the service
 service EmergencyService{

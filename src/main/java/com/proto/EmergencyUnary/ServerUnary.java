@@ -10,10 +10,11 @@ public class ServerUnary extends ServerImpl {
         //create the object
         ServerUnary unary = new ServerUnary();
 
-        //define the port
+        //registering the server with Jmdns
         int port = 50051;
         String service_type = "_grpc._tcp.local.";
         String service_name = "GrpcServer";
+        //service registration object
         ServiceRegistration ssr = new ServiceRegistration();
         //run the sever
         ssr.run(port, service_type, service_name);

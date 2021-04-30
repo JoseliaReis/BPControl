@@ -24,7 +24,7 @@ public class ServerImpl extends EmergencyServiceGrpc.EmergencyServiceImplBase {
                 " Last Name:" +PatientLast_name +
                 " Age:" +age +
                 " Address:" +Address +
-                " Blood Pressure Status:" +high_Blood_pressure+ "mm/Hg";
+                " Blood Pressure Status:" +high_Blood_pressure+ " mm/Hg";
         //generate the response
         EmergencyResponse response= EmergencyResponse.newBuilder()
                 .setResult(result)

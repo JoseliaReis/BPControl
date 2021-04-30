@@ -14,6 +14,7 @@ import com.proto.EmergencyServerClient.LongEmergencyResponse;
 import io.grpc.*;
 import io.grpc.stub.StreamObserver;
 import javax.jmdns.ServiceInfo;
+import javax.swing.*;
 import java.util.Arrays;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
@@ -49,7 +50,7 @@ public class Client {
         //function to call the method unary
         System.out.println("\nUnary Streaming service starting:");
         doUnaryCall(channel);
-        // doErrorhandling( channel);
+        //doErrorhandling( channel);
 
 
         /**
@@ -93,7 +94,7 @@ public class Client {
 
 
         // Shutting down the channel
-        System.out.println("\nShutting down channel. EmergencyUnary Blood Pressure Control completed:");
+        System.out.println("\nShutting down channel. Emergency Blood Pressure Control completed:");
         channel1.shutdown();
 
     }
@@ -137,7 +138,9 @@ public class Client {
         //create a blocking stub
         EmergencyServiceGrpc.EmergencyServiceBlockingStub blockingStub = EmergencyServiceGrpc.newBlockingStub(channel);
         //set the string
-        String str = "Joselia";
+
+        //Validation to check if the input match with the condition
+        String str =  JOptionPane.showInputDialog(null, "Please enter Patient Name: ");
         //check if matches with the condition
         try {
             blockingStub.errorHandling(ErrorHandlingRequest.newBuilder()
@@ -217,11 +220,18 @@ public class Client {
             });
             //It will start to pass messages
 
-            //Streaming message
+            //Streaming First message
             requestObserver.onNext(LongEmergencyRequest.newBuilder()
                     .setEmergency(com.proto.EmergencyServerClient.Emergency.newBuilder()
                             .setHighBloodPressure("200/80 mm Hg ")
                             .setMedication("Furosemide")
+                            .build())
+                    .build());
+            //Streaming Second message
+            requestObserver.onNext(LongEmergencyRequest.newBuilder()
+                    .setEmergency(com.proto.EmergencyServerClient.Emergency.newBuilder()
+                            .setHighBloodPressure("220/80 mm Hg ")
+                            .setMedication("Bumetanide ")
                             .build())
                     .build());
 
