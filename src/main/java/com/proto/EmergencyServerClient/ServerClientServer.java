@@ -27,7 +27,7 @@ public class ServerClientServer extends ServerClientImpl {
                     .addService(server2)
                     .build()
                     .start();
-            System.out.println("\nServer V1.2 Started");
+            System.out.println("\nServer 2 Started");
 
             server.awaitTermination();
 

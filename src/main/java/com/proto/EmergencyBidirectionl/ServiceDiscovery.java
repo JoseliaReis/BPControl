@@ -38,12 +38,12 @@ public class ServiceDiscovery {
             this.setServiceInfo(serviceInfo);
             System.out.println("host " + serviceInfo.getHostAddress());
             //this.setHost(serviceInfo.getHostAddress());
-            System.out.println("port " + serviceInfo.getPort());
+            System.out.println("Port " + serviceInfo.getPort());
             this.setPort(serviceInfo.getPort());
-            System.out.println("type " + serviceInfo.getType());
-            System.out.println("name " + serviceInfo.getName());
+            System.out.println("Type " + serviceInfo.getType());
+            System.out.println("Pame " + serviceInfo.getName());
             System.out.println("Computername " + serviceInfo.getServer());
-            System.out.println("desc/properties " + serviceInfo.getNiceTextString());
+            System.out.println("Desc/Properties " + serviceInfo.getNiceTextString());
 
         }
 

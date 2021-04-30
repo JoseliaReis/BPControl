@@ -11,7 +11,7 @@ public class ServerBidi  extends ServerBidiImpl {
 
     public static void main(String[] args) {
 
-        ServerBidi greeterserver = new ServerBidi();
+        ServerBidi server3 = new ServerBidi();
 
         int port = 50053;
         String service_type = "_grpc3._tcp.local.";
@@ -22,7 +22,7 @@ public class ServerBidi  extends ServerBidiImpl {
 
         try {
             Server server = ServerBuilder.forPort(port)
-                    .addService(greeterserver)
+                    .addService(server3)
                     .build()
                     .start();
             System.out.println("\nServer 3 Started");

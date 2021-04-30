@@ -23,7 +23,7 @@ public class ServiceRegistration {
             // service_name + service_type => simple_http._tcp.local
             //String service_name = "GrpcServer";
             int service_port = port;
-            String service_desc = "test integration of jmDNS with gRPC";
+            String service_desc = "Integration of jmDNS with gRPC";
 
 
             //Create ServiceInfo -
@@ -36,7 +36,7 @@ public class ServiceRegistration {
 
             jmdns.registerService(serviceInfo);
 
-            System.out.printf("registering service with type: %s and name: %s on port %d ", service_type, service_name, service_port);
+            System.out.printf("Registering service with type: %s and name: %s on port %d ", service_type, service_name, service_port);
 
             //sleep for 10 seconds
             Thread.sleep(10000);
