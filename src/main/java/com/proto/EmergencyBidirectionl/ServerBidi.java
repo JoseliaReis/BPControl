@@ -12,15 +12,17 @@ public class ServerBidi  extends ServerBidiImpl {
     public static void main(String[] args) {
 
         ServerBidi server3 = new ServerBidi();
-
+        //registering the server with Jmdns
         int port = 50053;
         String service_type = "_grpc3._tcp.local.";
         String service_name = "GrpcServer3";
+        //service registration object
         ServiceRegistration ssr3 = new ServiceRegistration();
         ssr3.run(port, service_type ,service_name);
 
 
         try {
+            //create the server that has the port which was declared above
             Server server = ServerBuilder.forPort(port)
                     .addService(server3)
                     .build()

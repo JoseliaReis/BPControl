@@ -15,6 +15,7 @@ public class ServiceRegistration {
 
         //get a jMDNS instance
         try {
+            //create an instance with local host
             JmDNS jmdns = JmDNS.create(InetAddress.getLocalHost());
 
             /*
@@ -22,9 +23,7 @@ public class ServiceRegistration {
              */
 
             //the assumption is that we are registering a grpc server
-            //service_type = "_grpc._tcp.local.";				//service-type.domain
-            // service_name + service_type => simple_http._tcp.local
-            //String service_name = "GrpcServer";
+
             int service_port = port;
             String service_desc = "test integration of jmDNS with gRPC";
 

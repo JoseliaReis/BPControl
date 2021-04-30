@@ -3,7 +3,6 @@ package com.proto.client;
 
 import com.proto.EmergencyUnary.*;
 import com.proto.EmergencyUnary.ServiceDiscovery;
-
 import com.proto.EmergencyBidirectionl.EmergencyMultiRequest;
 import com.proto.EmergencyBidirectionl.EmergencyMultiResponse;
 import com.proto.EmergencyBidirectionl.EmergencyServiceBidiGrpc;
@@ -31,7 +30,7 @@ public class Client {
     //run function
     private void run(){
         /**
-         * Discovery and Register the Unary Service
+         * Discovery the Unary Service
          */
         //This channel will be the transport to find the LocalHost
         ServiceInfo serviceInfo;
@@ -50,11 +49,11 @@ public class Client {
         //function to call the method unary
         System.out.println("\nUnary Streaming service starting:");
         doUnaryCall(channel);
-        //doErrorhandling( channel);
+       // doErrorhandling( channel);
 
 
         /**
-         * Discovery and Register the Server Streaming and the Client Streaming
+         * Discovery the Server Streaming and the Client Streaming
          */
         ServiceInfo serviceInfo2;
         String service_type2 = "_grpc2._tcp.local.";
@@ -73,7 +72,7 @@ public class Client {
         doServerStreamingCall(channel1);
         doCLientStreamingCall(channel1);
         /**
-         * Discovery and Register the Bi-Directional Streaming
+         * Discovery the Bi-Directional Streaming
          */
         ServiceInfo serviceInfo3;
         String service_type3 = "_grpc3._tcp.local.";
@@ -140,7 +139,7 @@ public class Client {
         //set the string
 
         //Validation to check if the input match with the condition
-        String str =  JOptionPane.showInputDialog(null, "Please enter Patient Name: ");
+        String str =  JOptionPane.showInputDialog(null, "Please enter Patient Name: " );
         //check if matches with the condition
         try {
             blockingStub.errorHandling(ErrorHandlingRequest.newBuilder()

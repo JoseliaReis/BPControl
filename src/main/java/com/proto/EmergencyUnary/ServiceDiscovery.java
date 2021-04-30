@@ -20,7 +20,7 @@ public class ServiceDiscovery {
         private int port;
         private String host;
         private ServiceInfo serviceInfo;
-
+        //first stage
         public void serviceAdded(ServiceEvent event) {
             // TODO Auto-generated method stub
             System.out.println("\nService Added " + event.getInfo());
@@ -32,7 +32,7 @@ public class ServiceDiscovery {
             System.out.println("Service Removed " + event.getInfo());
 
         }
-
+        //when it is printed out, the server got all information
         public void serviceResolved(ServiceEvent event) {
             // TODO Auto-generated method stub
             System.out.println("Service Resolved " + event.getInfo());
@@ -40,7 +40,6 @@ public class ServiceDiscovery {
             ServiceInfo serviceInfo = event.getInfo();
             this.setServiceInfo(serviceInfo);
             System.out.println("Host " + serviceInfo.getHostAddress());
-            //this.setHost(serviceInfo.getHostAddress());
             System.out.println("Port " + serviceInfo.getPort());
             this.setPort(serviceInfo.getPort());
             System.out.println("Type " + serviceInfo.getType());
@@ -78,21 +77,21 @@ public class ServiceDiscovery {
 
 
         try {
+            //create a jmdns instance
             JmDNS jmdns = JmDNS.create(InetAddress.getLocalHost());
 
             //will discover the service based on service type
-            //String service_type = "_grpc._tcp.local";
 
             //need to listen for services added/removed etc.
-
-            //jmdns.addServiceListener(service_type, new MyServiceListener());         //listen for specified type
+            //create a listener object
             MyServiceListener msl = new MyServiceListener();
+            //add the object to jmdns
             jmdns.addServiceListener(service_type, msl);
 
 
             //sleep for 10 seconds
             Thread.sleep(10000);
-
+            //get the port
             serviceInfo = msl.getServiceInfo();
             port = msl.getPort();
             System.out.println("This is the port retrieved from jmDNS: " + port);
@@ -110,6 +109,7 @@ public class ServiceDiscovery {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+        //by the end, return the service info back to grpc client
         return serviceInfo;
 
     }
